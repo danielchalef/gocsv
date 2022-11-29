@@ -66,7 +66,7 @@ func TestUnmarshalListOfStructsAfterMarshal(t *testing.T) {
 
 	// First, marshal our test data to a CSV format
 	buffer := new(bytes.Buffer)
-	innerWriter := csv.NewWriter(buffer)
+	innerWriter := NewWriter(buffer)
 	innerWriter.Comma = '|'
 	csvWriter := NewSafeCSVWriter(innerWriter)
 	if err := MarshalCSV(inData, csvWriter); err != nil {
